@@ -1,0 +1,33 @@
+.addUsers{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+.header{
+    font-size: 6vw;
+    text-align: center;
+    margin-top: 6%;
+}
+
+/* .userInput{
+
+} */
+
+/* .outlined-basic{
+    margin-left: 5px;
+} */
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

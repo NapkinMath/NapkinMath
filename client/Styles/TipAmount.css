@@ -1,0 +1,10 @@
+.tipButtons{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.coolButton{
+    width: 15vw;
+    height: 5vh;
+}

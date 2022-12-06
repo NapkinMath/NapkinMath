@@ -3,24 +3,27 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: process.env.NODE_ENV,
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, './client/index.html'),
+      filename: 'index.html',
+    }),  
+  ],
     entry: '/client/index.js',
     output: {
       path: path.resolve(__dirname, 'build'),
-      filename: 'bundle.js',
       publicPath: '/',
+      filename: 'bundle.js',
     },
     devServer: {
-      historyApiFallback: true,
-      hot: true,
       proxy: {
-        '/': 'http://localhost:3000',
+        '/api': 'http://localhost:3000',
+        '/build' : 'http://localhost:3000'
       },
+      compress: true,
+      port: 8080, 
+      historyApiFallback: true,
     },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: '/client/index.html',
-      }),
-    ],
     module: {
       rules: [
         {

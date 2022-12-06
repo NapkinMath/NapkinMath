@@ -2,18 +2,23 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './Styles/global.css'
 import Home from './Components/Home';
+import AddUsers from './Components/AddUsers';
+import ItemSelector from './Components/ItemSelector';
+import SignIn from './Components/SignIn';
+import TipAmount from './Components/TipAmount';
 
 function App() {
+
     //where all routes will exist to each step/mobile page
     return (  
         <div className='appBody'>
             <Routes>
-                <Route path='/' element={<Home />} />
-                {/* <Route path='/Signup' element={} /> */}
-                {/* <Route path='/AddUsers' element={} /> */}
-                {/* <Route path='/ReceiptUpload' element={} /> */}
-                {/* <Route path='/ItemSelector' element={} /> */}
-                {/* <Route path='/TipAmount' element={} /> */}
+                <Route path='/' element={<SignIn />} />
+                <Route path='/Home' element={ <Home/>} />
+                <Route path='/AddUsers' element={<AddUsers />} />
+                {/* <Route path='/ImageForm' element={} /> */}
+                <Route path='/ItemSelector' element={<ItemSelector />} />
+                <Route path='/TipAmount' element={<TipAmount />} />
                 {/* <Route path='/FinalDisplay' element={} /> */}
             </Routes>
         </div>

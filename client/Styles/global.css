@@ -20,8 +20,8 @@ body, #root {
 
 
 /* testing desktop-second development */
-@media (min-device-width: 600px) {
+/* @media (min-device-width: 600px) {
     .appBody {
         font-size: 100px;
     }
-}
+} */
