@@ -1,6 +1,6 @@
 const vision = require('@google-cloud/vision'); // Imports the Google Cloud client library
 const path = require('path');
-const getItemsListObj = require('./utils/receiptParser');
+const {getItemsListObj} = require('./utils/receiptParser');
 require('dotenv').config();
 
 const VisionAPIController = {};
