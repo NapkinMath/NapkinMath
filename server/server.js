@@ -4,37 +4,45 @@ const path = require('path');
 const cors = require('cors');
 const PORT = 3000;
 const dotenv = require('dotenv').config();
-const multer = require('multer'); //node. js middleware for handling multipart/form-data , which is primarily used for uploading files.
+const uploadRoute = require('./routes/uploadRouter')
+
+
+
+
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // static file-serving middleware
 app.use(
-  express.static(path.join(__dirname, '..', 'client', 'Styles', 'public'))
+  express.static(path.join(__dirname, '..', 'client', 'Styles', ))
 );
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-const upload = multer();
+app.use('/upload', uploadRoute)
 
-app.post(
-  '/',
-  upload.single('file'),
-  VisionAPIController.quickstart,
-  (req, res) => {
-    // The image is available in the request body
-    const image = req.body.file;
 
-    // You can save the image to a server and generate a URL for it here
-    const imageUrl = 'http://example.com/' + image.name;
 
-    // Send the URL back to the client
-    res.json({ url: imageUrl });
-  }
-);
+
+
+// app.post(
+//   '/',
+//   upload.single('file'),
+//   // VisionAPIController.quickstart,
+//   (req, res) => {
+//     // The image is available in the request body
+//     const image = req.body.file;
+
+//     // You can save the image to a server and generate a URL for it here
+//     const imageUrl = 'http://example.com/' + image.name;
+
+//     // Send the URL back to the client
+//     res.json({ url: imageUrl });
+//   }
+// );
 
 app.use('*', (req, res) => {
   res.status(404).send('Page Not Found');
