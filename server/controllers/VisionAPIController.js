@@ -1,6 +1,6 @@
 const vision = require('@google-cloud/vision'); // Imports the Google Cloud client library
 const path = require('path');
-const getItemsListObj = require('../utils/receiptParser');
+const getItemsListObj = require('./utils/receiptParser');
 require('dotenv').config();
 
 const VisionAPIController = {};
@@ -15,13 +15,13 @@ const CONFIG = {
 const client = new vision.ImageAnnotatorClient(CONFIG); // Creates a client
 
 VisionAPIController.quickstart = async (req, res, next) => {
-  const imageUrl = 'image.png';
-
   // Performs label detection on the image file
-  const [result] = await client.textDetection(path.join(__dirname, imageUrl)); //parameter should be the Image's Url (saved from multer?)
+  const [result] = await client.textDetection(
+    path.join(__dirname, `../uploads/${req.file.filename}`)
+  ); //parameter should be the Image's Url (saved from multer?)
   const textData = result.textAnnotations;
 
-  res.locals = textData;
+  res.locals.textData = textData;
   return next();
 };
 
