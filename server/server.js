@@ -9,9 +9,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // static file-serving middleware
-app.use(
-  express.static(path.join(__dirname, '..', 'client', 'Styles', 'public'))
-);
+app.get('/client/Styles/global.css', (req, res) => {
+  res.sendFile(path.join(__dirname, 'css', 'style.css'));
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}...`);

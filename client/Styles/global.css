@@ -1,7 +1,19 @@
+html{
+    height: 100%;
+}
+
+body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0, 128, 0, 0.1);
+}
+
 .appBody {
     margin: 0;
     padding: 0;
-    height: 100%
+    height: 100%;
 }
 
 
