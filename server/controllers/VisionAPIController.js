@@ -1,24 +1,43 @@
+const vision = require('@google-cloud/vision'); // Imports the Google Cloud client library
+const path = require('path');
+const getItemsListObj = require('../utils/receiptParser');
+require('dotenv').config();
+
 const VisionAPIController = {};
 
-VisionAPIController.quickstart = async (req, res, next) => {
-  const image = req.body.file;
-  // Imports the Google Cloud client library
-  const vision = require('@google-cloud/vision');
+const CONFIG = {
+  credentials: {
+    private_key: JSON.parse(JSON.stringify(process.env.PRIVATE_KEY)),
+    client_email: process.env.CLIENT_EMAIL,
+  },
+};
 
-  // Creates a client
-  const client = new vision.ImageAnnotatorClient();
+const client = new vision.ImageAnnotatorClient(CONFIG); // Creates a client
+
+VisionAPIController.quickstart = async (req, res, next) => {
+  const imageUrl = 'image.png';
 
   // Performs label detection on the image file
-  const [result] = await client.labelDetection(image); //parameter should be the Image's Url (saved from multer?)
-  const labels = result.labelAnnotations;
-  console.log('Labels:');
-  labels.forEach((label) => console.log(label.description));
+  const [result] = await client.textDetection(path.join(__dirname, imageUrl)); //parameter should be the Image's Url (saved from multer?)
+  const textData = result.textAnnotations;
 
-  res.locals = labels;
-
-  return res.status(200).send(res.locals);
-
-  // quickstart();
+  res.locals = textData;
+  return next();
 };
+
+VisionAPIController.parse = async (req, res, next) => {
+  res.locals.itemsListObj = getItemsListObj(res.locals.textData);
+  return next();
+};
+
+// // DELETE LATER WHEN DONE TESTING
+// async function testAPI(imageUrl) {
+//   const [result] = await client.textDetection(path.join(__dirname, imageUrl)); //parameter should be the Image's Url (saved from multer?)
+//   //const labels = result.labelAnnotations;
+//   console.log(getItemsListObj(result.textAnnotations));
+//   // labels.forEach((label) => console.log(label.description));
+// }
+
+// testAPI('image.png');
 
 module.exports = VisionAPIController;

@@ -3,9 +3,9 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 const PORT = 3000;
-const dotenv = require('dotenv').config();
 const multer = require('multer'); //node. js middleware for handling multipart/form-data , which is primarily used for uploading files.
 
+require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
