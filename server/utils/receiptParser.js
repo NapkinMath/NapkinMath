@@ -73,4 +73,4 @@ function getItemListObj(textData) {
   return { itemsList: resultsArr, tax };
 }
 
-module.exports = getItemListObj;
+module.exports = {getItemListObj, seperateLines};
