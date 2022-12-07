@@ -61,24 +61,24 @@ function FinalDisplay() {
     console.log(userData)
     // console.log(remainder)
 
-    // if(remainder.amount !== 0){
-    //     return (
-    //             <div className='finalDisplay'>
-    //                 <h1 className='header'>It appears as though some items were left unaccounted for...</h1>
-    //                 <h3>Total left over - {remainder.amount}</h3>
-    //                 {remainder.itemNames.map(itemName => {
-    //                     return(
-    //                         <div className='eachItem'>
-    //                             <p>{itemName}</p>
-    //                         </div>
-    //                     )
-    //                 })}
-    //                 <div className='footer'>
-    //                     <h1 className='header'>Please restart the process</h1>
-    //                 </div>
-    //             </div>
-    //     )
-    // }
+    if(remainder.amount !== 0){
+        return (
+                <div className='finalDisplay'>
+                    <h1 className='header'>It appears as though some items were left unaccounted for...</h1>
+                    <h3>Total left over - {remainder.amount}</h3>
+                    {remainder.itemNames.map(itemName => {
+                        return(
+                            <div className='eachItem'>
+                                <p>{itemName}</p>
+                            </div>
+                        )
+                    })}
+                    <div className='footer'>
+                        <h1 className='header'>Please restart the process</h1>
+                    </div>
+                </div>
+        )
+    }
 
     return (  
         <div className='finalDisplay'>
