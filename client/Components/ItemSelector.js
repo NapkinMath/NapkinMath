@@ -100,7 +100,7 @@ function ItemSelector() {
 
 
     return (  
-        <>
+        <div className='selectorPage'>
             <h1 className='header'>It is {currentTurn}'s turn</h1>
             <div className='usersContainer'>
                 {userData.map((user,i) => <UserBubble username={user} key={user} location={'ItemSelector'} index={i} currentTurn={currentTurn}/>)}
@@ -128,7 +128,7 @@ function ItemSelector() {
             <div className='footer'>
                 <button className='finished' onClick={newUser}>IM DONE</button>
             </div>
-        </>
+        </div>
     );
 }
 
