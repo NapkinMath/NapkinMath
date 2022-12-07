@@ -1,0 +1,10 @@
+.finalDisplay{
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+
+.circleContainer{
+    /* width: 5vw;
+    height: 10vh; */
+}

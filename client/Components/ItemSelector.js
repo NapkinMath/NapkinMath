@@ -94,7 +94,7 @@ function ItemSelector() {
             imageData.itemsList.forEach(item => {
                 total += item.itemPrice
             })
-            navigate('/TipAmount', {state: { userData: completedUsers, tax: imageData.tax, total: total }})
+            navigate('/TipAmount', {state: { userData: completedUsers, tax: imageData.tax, total: total, imageData: imageData }})
         }
     }, [currentUserObj]);
 

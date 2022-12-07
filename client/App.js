@@ -7,8 +7,9 @@ import ItemSelector from './Components/ItemSelector';
 import SignIn from './Components/SignIn';
 import TipAmount from './Components/TipAmount';
 import ImageForm from './Components/ImageForm';
-function App() {
+import FinalDisplay from './Components/FinalDisplay';
 
+function App() {
     //where all routes will exist to each step/mobile page
     return (  
         <div className='appBody'>
@@ -19,7 +20,7 @@ function App() {
                 <Route path='/ImageForm' element={<ImageForm />} />
                 <Route path='/ItemSelector' element={<ItemSelector />} />
                 <Route path='/TipAmount' element={<TipAmount />} />
-                {/* <Route path='/FinalDisplay' element={} /> */}
+                <Route path='/FinalDisplay' element={<FinalDisplay />} />
             </Routes>
         </div>
     );

@@ -8,3 +8,9 @@
     width: 15vw;
     height: 5vh;
 }
+
+.confirmButton{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
