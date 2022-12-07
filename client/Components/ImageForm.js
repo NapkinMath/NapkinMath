@@ -1,7 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ImageForm = () => {
+  const location = useLocation();
+  const userData = location.state
+  // console.log(userData)
+  const navigate = useNavigate();
   const [file, setFile] = useState();
 
   const send = (event) => {
@@ -9,7 +15,7 @@ const ImageForm = () => {
     data.append('file', file);
 
     axios.post('http://localhost:3000/upload', data)
-      .then((res) => console.log(res))
+      .then((res) => navigate('/ItemSelector', {state: {imageData: res.data, userData: userData}}))
       .catch((err) => {
         console.log(err);
       });

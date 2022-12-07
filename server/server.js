@@ -20,7 +20,7 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
 app.use('/upload', uploadRoute)
@@ -46,7 +46,7 @@ app.use('/upload', uploadRoute)
 // );
 
 app.use('*', (req, res) => {
-  res.status(404).send('Page Not Found');
+  return res.status(404).send('Page Not Found');
 });
 
 app.use((err, req, res, next) => {
