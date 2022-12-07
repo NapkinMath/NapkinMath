@@ -4,25 +4,6 @@ import UserBubble from './UserBubbles';
 import '../Styles/ItemSelector.css'
 import { useNavigate } from 'react-router-dom';
 
-const dummyData = {
-    itemsList: [
-      { itemPrice: 2.8, itemName: 'Cold Beverage'},
-      { itemPrice: 2.8, itemName: 'Cold Beverage' },
-      { itemPrice: 12.9, itemName: 'Lunch Small Salmon' },
-      { itemPrice: 14.5, itemName: 'Lunch Salmon' },
-      { itemPrice: 2, itemName: 'Lunch Cup Chix Chg / w' },
-      { itemPrice: 10.9, itemName: 'Lunch Fettuccine Carrabba' },
-      { itemPrice: 12.9, itemName: 'Lunch Small Salmon' },
-      { itemPrice: 11.5, itemName: 'Lunch Strawberry Salad' },
-      { itemPrice: 12.7, itemName: 'Lunch Sim Chix Bryan' },
-      { itemPrice: 2, itemName: 'Lunch House Salad Add On' },
-      { itemPrice: 7.2, itemName: 'Dessert Rosa' },
-      { itemPrice: 7.2, itemName: 'Dessert Rosa' },
-      { itemPrice: 7.9, itemName: 'Sogno di Cioccolata' },
-      { itemPrice: 7.9, itemName: 'Sogno di Cioccolata' }
-    ],
-    tax: 9.04
-}
 
 function ItemSelector() {
     //for props passed from AddUsers via React Router on click
@@ -117,31 +98,37 @@ function ItemSelector() {
         }
     }, [currentUserObj]);
 
+
     return (  
-        <>
-            <h1>It is {currentTurn}'s turn</h1>
+        <div className='selectorPage'>
+            <h1 className='header'>It is {currentTurn}'s turn</h1>
             <div className='usersContainer'>
-                {userData.map(user => <UserBubble username={user} key={user} />)}
+                {userData.map((user,i) => <UserBubble username={user} key={user} location={'ItemSelector'} index={i} currentTurn={currentTurn}/>)}
             </div>
             <div className='itemsContainer'>
 
                 {imageData.itemsList.map((item, i) => {
                     return (
-                        <div className="itemSet" key={i}>
-                            <input type="checkbox" 
-                            id={i} 
-                            name={item.itemName} 
-                            className='checkBox' 
-                            label='unchecked' 
-                            onChange={() => boxTicker(i)}
-                            /><p>{item.itemName}</p><p>{item.itemPrice}</p>
-                        </div>
+                        <>
+                            <div className="itemSet" key={i}>
+                                <input type="checkbox" 
+                                id={i} 
+                                name={item.itemName} 
+                                className='checkBox' 
+                                label='unchecked' 
+                                onChange={() => boxTicker(i)}
+                                /><p className='itemNames'>{item.itemName}</p><p className='prices'>{item.itemPrice}</p>
+                            </div>
+                            <div className='seperator'></div>
+                        </>
                     )
                 })}
 
             </div>
-            <button onClick={newUser}>im done lol</button>
-        </>
+            <div className='footer'>
+                <button className='finished' onClick={newUser}>IM DONE</button>
+            </div>
+        </div>
     );
 }
 

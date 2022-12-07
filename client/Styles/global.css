@@ -7,7 +7,11 @@ body, #root {
     padding: 0;
     height: 100%;
     overflow: hidden;
-    background: #22c09e;
+    background-color: #ace3d5;
+    /* background: rgb(30,188,155);
+    background: linear-gradient(180deg, rgba(30,188,155,1) 0%, rgba(43,193,160,1) 19%, rgba(171,227,213,1) 69%); */
+    /* background: rgb(26,194,159);
+    background: linear-gradient(180deg, rgba(26,194,159,1) 60%, rgba(172,227,213,1) 100%); */
     font-family: 'Roboto', sans-serif;
 }
 

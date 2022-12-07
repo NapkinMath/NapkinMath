@@ -23,12 +23,16 @@ function AddUsers() {
             <div className="userInput">
                 <TextField id="outlined-basic" label="Initials of each person" variant="outlined" />
                 <Button variant="contained" onClick={addPerson}>+</Button>
-                {users.map(user => <UserBubble username={user} key={user} />)}
+            </div>
+            <div className='forBubbles'>
+                {users.map((user,i) => <UserBubble username={user} key={user} location={'AddUsers'} index={i} currentTurn={true} />)}
             </div>
             {/* vvv should link to image upload, need to hold props */}
-            <Link to='/ImageForm' state={users} style={{marginTop: 'auto'}}>
-                <Button variant="contained" >Finished</Button>
-            </Link>
+            <div className='forBottom'>
+                <Link to='/ImageForm' state={users}>
+                    <button className='complete'>FINISHED</button>
+                </Link>
+            </div>
         </div>  
     );
 }
