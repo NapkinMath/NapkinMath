@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import '../Styles/FinalDisplay.css';
 import UserBubble from './UserBubbles';
 
+
 function FinalDisplay() {
     const { state } = useLocation();
     const { userData, tip, total, tax, imageData } = state;
+    const [isThereRemainder, setRemainder] = useState(false)
     // console.log(state)
     //FinalDisplay will need to:
         //Have a main object to keep track of everyone assigned to each item
@@ -42,9 +44,14 @@ function FinalDisplay() {
             remainder.amount += item.itemPrice
         }
     })
+    //need tax owed for each user
     remainder.amount = Math.round(remainder.amount * 100) / 100
-    //round user totals
+    //need to proportionally add tax and tip and round user totals
     userData.forEach(user => {
+        const percentageInDecimal = (user.total / total)
+        const userTax = percentageInDecimal * tax
+        const userTip = percentageInDecimal * tip
+        user.total += (userTax + userTip)
         user.total = Math.round(user.total * 100) / 100
     })
     // imageData should now have a contributed key, with all users on that item
@@ -54,16 +61,55 @@ function FinalDisplay() {
     console.log(userData)
     // console.log(remainder)
 
+    // if(remainder.amount !== 0){
+    //     return (
+    //             <div className='finalDisplay'>
+    //                 <h1 className='header'>It appears as though some items were left unaccounted for...</h1>
+    //                 <h3>Total left over - {remainder.amount}</h3>
+    //                 {remainder.itemNames.map(itemName => {
+    //                     return(
+    //                         <div className='eachItem'>
+    //                             <p>{itemName}</p>
+    //                         </div>
+    //                     )
+    //                 })}
+    //                 <div className='footer'>
+    //                     <h1 className='header'>Please restart the process</h1>
+    //                 </div>
+    //             </div>
+    //     )
+    // }
+
     return (  
         <div className='finalDisplay'>
-            <h1 className='header'>Below is what everyone owes</h1>
-            {userData.map((userobj,i) => {
-                return(
-                    <div className='eachUser' key={i}>
-                        
-                    </div>
-                )
-            })}
+            <h1 className='header'>Below is what everyone owes:</h1>
+            <h3>(Tax and Tip included)</h3>
+            {/* <div className='gridContainer'> */}
+                {userData.map((userobj,i) => {
+                    console.log(userobj)
+                    return(
+                        <div className='eachUser' key={i}>
+                            <h1 className='eachUserName'>
+                            <UserBubble
+                                username={userobj.Username}
+                                key={userobj.Username}
+                                location={'FinalDisplay'}
+                                index={i}
+                                currentTurn={true}
+                            />
+                            </h1>
+                            <h1 className='eachUserOwes'>
+                                {userobj.total}    
+                            </h1>
+                        </div>
+                    )
+                })}
+            {/* </div> */}
+            <div className='footer'>
+                <button className='finished'>
+                    Save this experience
+                </button>
+            </div>
         </div>
     );
 }

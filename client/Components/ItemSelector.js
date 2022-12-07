@@ -138,7 +138,7 @@ function ItemSelector() {
                               userItem
                             )}`}
                             location={'ItemSelector'}
-                            index={count++}
+                            index={completedUsers.indexOf(user)}
                             currentTurn={true}
                           />
                         </div>

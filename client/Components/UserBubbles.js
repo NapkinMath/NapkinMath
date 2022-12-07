@@ -17,15 +17,16 @@ const colors = [
 function UserBubble(props) {
     let padding;
     if(props.location === 'AddUsers') padding = 'addUsersPage'
-    if(props.location === 'ItemSelector') padding = 'itemSelectorPage' 
+    if(props.location === 'ItemSelector') padding = 'itemSelectorPage'
+    if(props.location === 'FinalDisplay') padding = 'FinalDisplay' 
     let currentTurn;
     if (props.currentTurn){
-        if (props.currentTurn === props.username) currentTurn = true;
+        if (props.currentTurn === props.username || currentTurn === true) currentTurn = true;
     }
 
     return (
         <div className={padding}>
-            <div className="userBubble" style={{backgroundColor: `${colors[props.index]}`, fontSize: `${props.location === 'ItemSelector' ? '17px' : '25px'}`, opacity: `${currentTurn || props.location === 'AddUsers' ? '100%' : '60%'}`}}>{props.username}</div>
+            <div className="userBubble" style={{backgroundColor: `${colors[props.index]}`, fontSize: `${props.location === 'ItemSelector' ? '17px' : '25px'}`, opacity: `${currentTurn || props.location === 'AddUsers' || props.location === 'FinalDisplay' ? '100%' : '60%'}`}}>{props.username}</div>
         </div>  
     );
 }
