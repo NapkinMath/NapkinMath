@@ -1,16 +1,80 @@
 .tipButtons{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+}
+
+.tipAmount{
+    margin-bottom: 0;
+}
+
+.currentTip{
+    margin-bottom: 8vh;
+}
+
+.tipAmountWholePage{
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+.customAmount{
+    display:flex;
+    margin-top: 4vh;
     gap: 10px;
+    height: 8vh;
+    font-size: 24px;
 }
 
 .coolButton{
-    width: 15vw;
-    height: 5vh;
+    width: 50vw;
+    height: 10vh;
+}
+.confirm{
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 3vh;
 }
 
 .confirmButton{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    background-color: #fff;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Neucha, sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    outline: none;
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 60vw;
+    height: 10vh;
 }

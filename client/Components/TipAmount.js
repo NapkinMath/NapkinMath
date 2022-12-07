@@ -35,9 +35,9 @@ function TipAmount() {
     }, [selected]);
     
     return (
-        <>
-            <h1>Select Tip Amount</h1>
-            <h1>current tip XD {tip} </h1>
+        <div className='tipAmountWholePage'>
+            <h1 className="tipAmount">Select Tip Amount</h1>
+            <h1 className="currentTip">Your current tip: {tip} </h1>
             <div className='tipButtons'>
                 <button className='coolButton' onClick={() => calcTip(.15)}>15%</button>
                 <button className='coolButton' onClick={() => calcTip(.18)}>18%</button>
@@ -49,12 +49,12 @@ function TipAmount() {
                 id='customTip' 
                 name='customTip'
                 />
-                <button onClick={() => customTip(inputRef.current.value)}>Custom Tip</button>
+                <button className='confirmButton' style={{height:'8vh', width: '20vw'}} onClick={() => customTip(inputRef.current.value)}>Custom Tip</button>
             </div>  
             <div className='confirm'>
-                <button className='confirmbutton' onClick={selectClick}>Confirm</button>
+                <button className='confirmButton' onClick={selectClick}>Confirm</button>
             </div>
-        </>
+        </div>
     );
 }
 
