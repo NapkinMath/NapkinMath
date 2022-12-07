@@ -1,0 +1,36 @@
+.addUsersPage {
+    padding: 30px;
+}
+.itemSelectorPage{
+    padding:5px;
+}
+
+.userBubble{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 50%;
+    height:100%;
+    /* border-color: black; */
+    opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	60% {
+		opacity: 1;
+	}
+}
+
+/* .type2 {
+} */

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import '../Styles/ImageForm.css'
 
 const ImageForm = () => {
   const location = useLocation();
@@ -9,6 +10,7 @@ const ImageForm = () => {
   // console.log(userData)
   const navigate = useNavigate();
   const [file, setFile] = useState();
+  const [imgDisplay, setImageDisplay] = useState();
 
   const send = (event) => {
     const data = new FormData();
@@ -22,21 +24,24 @@ const ImageForm = () => {
   };
 
   return (
-    <div>
+    <div className='flex'>
       <form action="#" method="post" encType="multipart/form-data">
         <div className="flex">
-          <label htmlFor="file">File</label>
+          <label className='instructions' htmlFor="file">Upload your receipt</label>
           <input
+            className='button-55'
             type="file"
             id="file"
             onChange={(event) => {
               const file = event.target.files[0];
               setFile(file);
+              setImageDisplay(URL.createObjectURL(event.target.files[0]))
             }}
           />
+          {imgDisplay ? <img src={imgDisplay} className='imgDisplay' /> : <div></div>}
         </div>
       </form>
-      <button onClick={send}>Send</button>
+      <button className='button-55' onClick={send}>Split Bill</button>
     </div>
   );
 };

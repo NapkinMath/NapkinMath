@@ -5,8 +5,8 @@ import logo from "../Assets/napkinmath.png"
 function Home() {
     return ( 
         <div>
-            <img src = {logo}/>
             <div>Welcome to NapkinMath!</div>
+            <img src = {logo}/>
             <Link to='/AddUsers'>
                 <button>add users</button>
             </Link>
