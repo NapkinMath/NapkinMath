@@ -1,20 +1,4 @@
-.tipButtons{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 4vh;
-}
-
-.tipAmount{
-    margin-bottom: 0;
-}
-
-.currentTip{
-    margin-bottom: 8vh;
-}
-
-.tipAmountWholePage{
+.finalDisplay{
     display: flex;
     flex-flow: column;
     height: 100vh;
@@ -28,26 +12,38 @@
 	animation-duration: 1s;
 }
 
-.customAmount{
-    display:flex;
-    margin-top: 4vh;
-    gap: 10px;
-    height: 8vh;
-    font-size: 24px;
+.header{
+    margin-bottom: 0;
 }
 
-.coolButton{
-    width: 50vw;
-    height: 10vh;
+.circleContainer{
+    /* width: 5vw;
+    height: 10vh; */
 }
-.confirm{
+
+.eachUser{
+    display:flex;
+    grid-column: 2/5;
+    justify-content: center;
+}
+
+.eachUserName{
+    margin-right: 10vw;
+    /* width: 50%; */
+}
+
+.eachUserOwes{
+    margin-left: 10vw;
+}
+
+.footer {
     display: flex;
     justify-content: center;
     margin-top: auto;
     margin-bottom: 3vh;
 }
 
-.confirmButton{
+.finished {
     background-color: #fff;
     background-image: none;
     background-position: 0 90%;
@@ -56,7 +52,7 @@
     border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
     border-style: solid;
     border-width: 2px;
-    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
     box-sizing: border-box;
     color: #41403e;
     cursor: pointer;
@@ -65,7 +61,7 @@
     font-size: 1rem;
     line-height: 23px;
     outline: none;
-    padding: .75rem;
+    padding: 0.75rem;
     text-decoration: none;
     transition: all 235ms ease-in-out;
     border-bottom-left-radius: 15px 255px;
@@ -75,6 +71,37 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    width: 60vw;
-    height: 10vh;
+}
+
+.finished:hover {
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+.finished:focus {
+    box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+
+.eachItem{
+    display: flex;
+    font-size: 5vw;
+    margin-bottom: 0;
+
+}
+.gridContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 20vw);
+	grid-template-rows: repeat(8, 12%);
+	grid-gap: 1px;
+	margin-top: 2vh;
+    height: 80%;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }

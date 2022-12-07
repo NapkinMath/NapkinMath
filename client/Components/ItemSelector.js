@@ -76,26 +76,23 @@ function ItemSelector() {
     for (let i = 0; i < boxesToClear.length; i++) {
       boxesToClear[i].checked = false;
     }
-    console.log('completed');
-  }
-  ////////////////////////////
-  console.log(checkedState);
-  console.log(currentUserObj);
-  console.log(currentTurn);
-  console.log(completedUsers);
-
-  //LETS FUCKING GO!!!
-  useEffect(() => {
-    if (completedUsers.length === userData.length) {
-      let total = 0;
-      imageData.itemsList.forEach((item) => {
-        total += item.itemPrice;
-      });
-      navigate('/TipAmount', {
-        state: { userData: completedUsers, tax: imageData.tax, total: total },
-      });
     }
-  }, [currentUserObj]);
+    ////////////////////////////
+    console.log(checkedState)
+    console.log(currentUserObj)
+    console.log(currentTurn)
+    console.log(completedUsers)
+
+    //LETS FUCKING GO!!!
+    useEffect(() => {
+        if(completedUsers.length === userData.length) {
+            let total = 0
+            imageData.itemsList.forEach(item => {
+                total += item.itemPrice
+            })
+            navigate('/TipAmount', {state: { userData: completedUsers, tax: imageData.tax, total: total, imageData: imageData }})
+        }
+    }, [currentUserObj]);
 
   return (
     <div className='selectorPage'>
@@ -141,7 +138,7 @@ function ItemSelector() {
                               userItem
                             )}`}
                             location={'ItemSelector'}
-                            index={count++}
+                            index={completedUsers.indexOf(user)}
                             currentTurn={true}
                           />
                         </div>

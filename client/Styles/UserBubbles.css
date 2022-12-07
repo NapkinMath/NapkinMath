@@ -4,6 +4,9 @@
 .itemSelectorPage{
     padding:5px;
 }
+.finalDisplay{
+    padding:5px;
+}
 
 .userBubble{
     display: flex;
