@@ -4,25 +4,35 @@ const path = require('path');
 const cors = require('cors');
 const PORT = 3000;
 const dotenv = require('dotenv').config();
-// const multer = require('multer'); //node. js middleware for handling multipart/form-data , which is primarily used for uploading files.
+const uploadRoute = require('./routes/uploadRouter')
 
+
+
+
+
+require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // static file-serving middleware
+app.use(
+  express.static(path.join(__dirname, '..', 'client', 'Styles', ))
+);
 
 app.get('/', (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../client/index.html'));
 });
 
-app.use('/build', express.static(path.join(__dirname, '../build')));
+app.use('/upload', uploadRoute)
 
-// const upload = multer();
+
+
+
 
 // app.post(
 //   '/',
 //   upload.single('file'),
-//   VisionAPIController.quickstart,
+//   // VisionAPIController.quickstart,
 //   (req, res) => {
 //     // The image is available in the request body
 //     const image = req.body.file;

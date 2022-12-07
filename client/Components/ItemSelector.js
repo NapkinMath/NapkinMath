@@ -27,20 +27,22 @@ const dummyData = {
 function ItemSelector() {
     //for props passed from AddUsers via React Router on click
     const location = useLocation();
-    const data = location.state
-
+    const {userData, imageData} = location.state
+    // console.log(data)
+    console.log(userData)
+    console.log(imageData)
     //Navigation when finished (above return)
     const navigate = useNavigate();
 
     //hook city
     const [checkedState, setCheckedState] = useState(
-        new Array(dummyData.itemsList.length).fill(false)
+        new Array(imageData.itemsList.length).fill(false)
     );
-    const [currentTurn, setTurn] = useState(data[0])
+    const [currentTurn, setTurn] = useState(userData[0])
     const [currentUserObj, setCurrentUserObj] = useState({
         Username: currentTurn,
         itemsSelected: 
-            dummyData.itemsList.map(item => {
+            imageData.itemsList.map(item => {
                 return ({
                     itemName: item.itemName,
                     itemPrice: item.itemPrice,
@@ -61,7 +63,7 @@ function ItemSelector() {
     const defaultUserObj = {
         Username: currentTurn,
         itemsSelected: 
-            dummyData.itemsList.map(item => {
+            imageData.itemsList.map(item => {
                 return ({
                     itemName: item.itemName,
                     itemPrice: item.itemPrice,
@@ -84,11 +86,11 @@ function ItemSelector() {
         // if()
 
         //then reset checkedState
-        setCheckedState(new Array(dummyData.itemsList.length).fill(false))
+        setCheckedState(new Array(imageData.itemsList.length).fill(false))
         //also need to change currentTurn to the next person in the array, indexOf current? switch to variable for index?
-        setTurn((prevUser) => data[data.indexOf(prevUser) + 1])
+        setTurn((prevUser) => userData[userData.indexOf(prevUser) + 1])
         //also need to clear/reset currentUserObj
-        defaultUserObj.Username = data[data.indexOf(currentTurn) + 1]
+        defaultUserObj.Username = userData[userData.indexOf(currentTurn) + 1]
         setCurrentUserObj(defaultUserObj);
 
         //clear checks
@@ -106,12 +108,12 @@ function ItemSelector() {
 
     //LETS FUCKING GO!!!
     useEffect(() => {
-        if(completedUsers.length === data.length) {
+        if(completedUsers.length === userData.length) {
             let total = 0
-            dummyData.itemsList.forEach(item => {
+            imageData.itemsList.forEach(item => {
                 total += item.itemPrice
             })
-            navigate('/TipAmount', {state: { userData: completedUsers, tax: dummyData.tax, total: total }})
+            navigate('/TipAmount', {state: { userData: completedUsers, tax: imageData.tax, total: total }})
         }
     }, [currentUserObj]);
 
@@ -119,11 +121,11 @@ function ItemSelector() {
         <>
             <h1>It is {currentTurn}'s turn</h1>
             <div className='usersContainer'>
-                {data.map(user => <UserBubble username={user} key={user} />)}
+                {userData.map(user => <UserBubble username={user} key={user} />)}
             </div>
             <div className='itemsContainer'>
 
-                {dummyData.itemsList.map((item, i) => {
+                {imageData.itemsList.map((item, i) => {
                     return (
                         <div className="itemSet" key={i}>
                             <input type="checkbox" 

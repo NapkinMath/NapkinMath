@@ -26,7 +26,7 @@ function AddUsers() {
                 {users.map(user => <UserBubble username={user} key={user} />)}
             </div>
             {/* vvv should link to image upload, need to hold props */}
-            <Link to='/ItemSelector' state={users} style={{marginTop: 'auto'}}>
+            <Link to='/ImageForm' state={users} style={{marginTop: 'auto'}}>
                 <Button variant="contained" >Finished</Button>
             </Link>
         </div>  
