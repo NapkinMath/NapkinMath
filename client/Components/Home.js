@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import logo from "../Assets/napkinmath.png"
 
 function Home() {
     return ( 
         <div>
-            <div>need to place image here</div>
+            <img src = {logo}/>
             <div>Welcome to NapkinMath!</div>
             <Link to='/AddUsers'>
                 <button>add users</button>
