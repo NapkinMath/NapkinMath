@@ -1,24 +1,29 @@
-.homePage {
+#Sign-in-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Patrick Hand', cursive;
+  gap: 10px;
 }
 
-.welcomeDiv {
+#SignInDiv {
+  width: 18rem;
+}
+.loginDiv {
   display: flex;
+  font-size: 1.5rem;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.welcomeHeader {
-  text-align: center;
-  font-size: 2.7rem;
+.loginDiv input {
+  height: 2rem;
+  width: 16rem;
+  font-size: 20px;
 }
 
-.addusers {
+.loginBtns {
   font-family: 'Patrick Hand', cursive;
   align-self: center;
   background-color: #fff;
@@ -34,11 +39,11 @@
   color: #41403e;
   cursor: pointer;
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 30px;
   outline: none;
-  padding: 1rem;
-  width: 13rem;
+  padding: 0.5rem;
+  width: 17rem;
   text-align: center;
   text-decoration: none;
   transition: all 235ms ease-in-out;
@@ -51,13 +56,13 @@
   touch-action: manipulation;
 }
 
-.addusers:hover {
+.loginBtns:hover {
   font-family: 'Patrick Hand', cursive;
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
 }
 
-.addusers:focus {
+.loginBtns:focus {
   font-family: 'Patrick Hand', cursive;
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }

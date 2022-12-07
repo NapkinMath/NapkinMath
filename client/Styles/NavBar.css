@@ -1,0 +1,9 @@
+#button {
+  background-color: red;
+  border: 1px solid blue;
+  position: absolute;
+  width: 5rem;
+  right: 1rem;
+  top: 1rem;
+  font-family: 'Patrick Hand', cursive;
+}
