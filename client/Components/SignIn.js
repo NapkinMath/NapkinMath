@@ -30,7 +30,7 @@ function SignIn(props) {
     google.accounts.id.renderButton(document.getElementById('signInDiv'), {
       theme: 'outline',
       size: 'large',
-      width: '270',
+      width: '180',
     });
   }, []);
 
