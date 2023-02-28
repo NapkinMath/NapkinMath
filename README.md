@@ -5,4 +5,6 @@ It takes a mobile first approach to cater to an audience that will be using the 
 
 To use this app, simply log in using your google account to get started. Using google Oauth2.0 will provide the app with some more details about you!
 
-Then, enter the initials of each member in your party. Then, simply upload an image of a receipt from your phone or computer into the application.
+Then, enter the initials of each member in your party. Then upload an image of a receipt from your phone or computer into the application.
+
+When the image parser has completed scanning your receipt, it should provide an updated page of each item, as well as the price associated per line item.
