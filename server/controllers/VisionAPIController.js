@@ -42,17 +42,13 @@ VisionAPIController.parse = async (req, res, next) => {
 
 module.exports = VisionAPIController;
 
-
-
-
-
-//<--------------- OLD VERSION ---------> 
+//<--------------- OLD VERSION --------->
 
 // // const vision = require('@google-cloud/vision'); // Imports the Google Cloud client library
 // const path = require('path');
 // // const {getItemsListObj} = require('./utils/receiptParser');
 // // require('dotenv').config();
-// // 
+// //
 // // const VisionAPIController = {};
 
 // // const CONFIG = {
@@ -61,7 +57,7 @@ module.exports = VisionAPIController;
 // //     client_email: process.env.CLIENT_EMAIL,
 // //   },
 // // };
-// // 
+// //
 // // const client = new vision.ImageAnnotatorClient(CONFIG); // Creates a client
 
 // // VisionAPIController.quickstart = async (req, res, next) => {
